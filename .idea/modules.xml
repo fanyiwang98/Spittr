@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Spittr.iml" filepath="$PROJECT_DIR$/Spittr.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spittr.iml" filepath="$PROJECT_DIR$/spittr.iml" />
     </modules>
   </component>
 </project>
