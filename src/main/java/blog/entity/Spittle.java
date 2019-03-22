@@ -1,7 +1,11 @@
 package blog.entity;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.Data;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.util.Date;
 
 /**
@@ -9,6 +13,9 @@ import java.util.Date;
  * @date: Created on 2019/3/20
  * @description:
  */
+@Data
+@Entity
+@Table(name = "spittle")
 public class Spittle {
     private Long id;
     private String message;
