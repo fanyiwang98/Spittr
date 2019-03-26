@@ -23,7 +23,8 @@ public class SpittleController {
         System.out.println(spittle.getLatitude());
 
         SpittleDao spittleDao = new SpittleDao();
-        spittleDao.addSpittle(spittle);
+        spittleDao.add(spittle);
+
         return "ok";
     }
 }
