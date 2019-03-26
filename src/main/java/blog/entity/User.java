@@ -1,9 +1,9 @@
 package blog.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.Date;
 import java.util.Set;
 
 /**
@@ -11,14 +11,13 @@ import java.util.Set;
  * @date: Created on 2019/3/26
  * @description:
  */
-@Entity
-@Table(name = "spittle")
 @Data
-public class Spittle {
+@Entity
+@Table(name = "user")
+public class User {
     private Long id;
-    private String message;
-    private Date time;
-    private User user;
+    private String name;
+    private String password;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,9 +25,5 @@ public class Spittle {
         return id;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    public User getUser() {
-        return user;
-    }
+
 }

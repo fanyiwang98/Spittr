@@ -23,7 +23,7 @@ public class Result {
         result.setStatusCode(200);
         Spittle spittle = new Spittle();
         spittle.setId(1l);
-        spittle.setLatitude(100.0);
+        //spittle.setLatitude(100.0);
         spittle.setMessage("test");
         result.setData(spittle);
         System.out.println(result);

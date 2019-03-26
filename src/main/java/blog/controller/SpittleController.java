@@ -2,11 +2,11 @@ package blog.controller;
 
 import blog.dao.SpittleDao;
 import blog.entity.Spittle;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * @author: wyf
@@ -15,16 +15,35 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @Controller
 public class SpittleController {
-    @RequestMapping(value = "/spittle", method = RequestMethod.POST)
-    @ResponseBody
-    public String show(@RequestBody Spittle spittle) {
-        if (spittle == null)
-            System.out.println("null");
-        System.out.println(spittle.getLatitude());
+    @Autowired
+    private SpittleDao spittleDao;
 
-        SpittleDao spittleDao = new SpittleDao();
+    @RequestMapping(value = "/spittle/add", method = RequestMethod.POST)
+    @ResponseBody
+    public String add(@RequestBody Spittle spittle) {
         spittleDao.add(spittle);
 
         return "ok";
+    }
+
+    @RequestMapping(value = "spittle/get", method = RequestMethod.GET)
+    @ResponseBody
+    public Spittle get(@RequestParam("id") Long id) {
+        Spittle spittle = spittleDao.get(id);
+        return spittle;
+    }
+
+    @RequestMapping(value = "spittle/getHQL", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Spittle> getHQL(@RequestParam("message") String message) {
+        List<Spittle> spittles = spittleDao.getHQL(message);
+        return spittles;
+    }
+
+    @RequestMapping(value = "spittle/getCriteria", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Spittle> getCriteria(@RequestParam("message") String message) {
+        List<Spittle> spittles = spittleDao.getCriteria(message);
+        return spittles;
     }
 }

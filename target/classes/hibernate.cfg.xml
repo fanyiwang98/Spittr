@@ -16,7 +16,11 @@
         <property name="current_session_context_class">thread</property>
         <property name="show_sql">true</property>
         <property name="hbm2ddl.auto">update</property>
-        <mapping resource="entity/Spittle.hbm.xml"/>
+        <!--<mapping resource="entity/Spittle.hbm.xml"/>
+        <mapping resource="entity/User.hbm.xml"/>-->
+        <mapping package="blog.entity"/>
+        <mapping class="blog.entity.Spittle"/>
+        <mapping class="blog.entity.User"/>
     </session-factory>
 
 </hibernate-configuration>
