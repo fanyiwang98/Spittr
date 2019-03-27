@@ -29,7 +29,8 @@ public class UserController {
     @ResponseBody
     public User list(@RequestParam("id") Long id) {
         User user = userDao.list(id);
-        Set<Spittle> spittles = spittleDao.getByUserId(id);
+        System.out.println(user);
+        //Set<Spittle> spittles = spittleDao.getByUserId(id);
         //user.setSpittleList(spittles);
         return user;
     }

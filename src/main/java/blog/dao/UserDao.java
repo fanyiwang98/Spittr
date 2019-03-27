@@ -6,7 +6,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.springframework.stereotype.Repository;
-import sun.security.provider.ConfigFile;
 
 import java.util.Set;
 
@@ -23,7 +22,9 @@ public class UserDao {
         s.beginTransaction();
 
         User user = (User) s.get(User.class, id);
-
+        Set<Spittle> spittleSet = user.getSpittleSet();
+        System.out.println(spittleSet);
+        System.out.println(user);
         s.getTransaction().commit();
         s.close();
         sf.close();
